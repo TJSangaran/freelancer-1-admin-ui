@@ -58,7 +58,7 @@ const columns = [
 ];
 
 const Users = () => {
-    const [users, usersLoading] = useFetch(`/users`);
+    const [users, usersLoading] = useFetch(`/admin/users`);
 
     if (usersLoading) return "Loading...";
     return (

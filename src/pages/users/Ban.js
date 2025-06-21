@@ -14,7 +14,7 @@ function Ban({ row }) {
         };
         const body = JSON.stringify({ banned: value });
         const response = await (
-            await customFetch(`/users/ban/${row._id}`, {
+            await customFetch(`/admin/users/ban/${row._id}`, {
                 method: "PUT",
                 headers,
                 body,
@@ -39,7 +39,7 @@ function Ban({ row }) {
             }
             label={
                 <Chip
-                    label={banned ? "Banned" : "Not Banned"}
+                    label={banned ? "Banned" : "Active"}
                     variant="outlined"
                     style={{
                         width: "100%",

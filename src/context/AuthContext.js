@@ -112,7 +112,7 @@ export function AuthProvider({ children }) {
     }
 
     function login(email, password, rememberMe = false) {
-        return fetch(process.env.REACT_APP_API_HOST + `/auth/login`, {
+        return fetch(process.env.REACT_APP_API_HOST + `/admin/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password, rememberMe })

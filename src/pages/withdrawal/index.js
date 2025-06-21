@@ -13,7 +13,7 @@ import { useAuth } from '../../context/AuthContext';
 
 
 const Withdrawal = () => {
-    const [withdrawals, withdrawalsLoading] = useFetch('/withdrawalRequests')
+    const [withdrawals, withdrawalsLoading] = useFetch('/admin/withdrawalRequests')
     const [rows, setRows] = useState([])
     const [successMsg, setSuccessMsg] = useState('')
 
@@ -38,7 +38,7 @@ const Withdrawal = () => {
         {
             name: 'name',
             label: 'Name',
-            render: row => `${row.user.firstname} ${row.user.lastname}`
+            render: row => `${row.user?.firstname || ''} ${row.user?.lastname || ''}`
         },
         {
             name: 'bank',
@@ -46,13 +46,13 @@ const Withdrawal = () => {
             render: row => (
                 <>
                     <Typography variant="body2" component="h2">
-                        <b>Bank Name</b> {row.user.bankname}
+                        <b>Bank Name</b> {row.user?.bankname}
                     </Typography>
                     <Typography variant="body2" component="h2">
-                        <b>Account Name</b> {row.user.accountname}
+                        <b>Account Name</b> {row.user?.accountname}
                     </Typography>
                     <Typography variant="body2" component="h2">
-                        <b>Account Number</b> {row.user.accountnumber}
+                        <b>Account Number</b> {row.user?.accountnumber}
                     </Typography>
                 </>
             )
@@ -115,12 +115,7 @@ const Withdrawal = () => {
 
     const handleSubmit = (e, status) => {
         e.preventDefault();
-        // customFetch(`/withdrawalRequests/status/${data._id}`, {
-        //     method: 'PUT',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify({status})
-        // })
-        fetch(process.env.REACT_APP_API_HOST + `/withdrawalRequests/status/${data._id}`, {
+        customFetch(`/admin/withdrawalRequests/status/${data._id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ status })

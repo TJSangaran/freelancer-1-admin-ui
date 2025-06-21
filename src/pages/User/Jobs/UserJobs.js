@@ -33,7 +33,7 @@ function UserJobs({ user }) {
                             </Typography>
                             <Stack spacing={2}>
                                 {jobs.map((job, id) => (
-                                    <JobView user={user} job={job} />
+                                    <JobView key={job._id} user={user} job={job} />
                                 ))}
                             </Stack>
                         </>
