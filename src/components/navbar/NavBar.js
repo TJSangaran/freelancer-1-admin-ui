@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -13,8 +12,6 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 
 import Fab from '@mui/material/Fab';
@@ -28,8 +25,6 @@ import { useTheme } from '@mui/material/styles';
 import { useAuth } from '../../context/AuthContext';
 
 import { ListItemIcon } from '@mui/material';
-import Person from '@mui/icons-material/Person';
-import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 
 const Search = styled('div')(({ theme }) => ({
@@ -137,18 +132,6 @@ export default function NavBar({ drawerWidth, handleDrawerToggle }) {
 			anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
 		>
 
-			<MenuItem component={Link} to="/profile">
-				<ListItemIcon>
-					<Person fontSize="small" />
-				</ListItemIcon>
-				Profile
-			</MenuItem>
-			<MenuItem>
-				<ListItemIcon>
-					<Settings fontSize="small" />
-				</ListItemIcon>
-				Settings
-			</MenuItem>
 			<MenuItem onClick={logout}>
 				<ListItemIcon>
 					<Logout fontSize="small" />
@@ -175,39 +158,6 @@ export default function NavBar({ drawerWidth, handleDrawerToggle }) {
 			open={isMobileMenuOpen}
 			onClose={handleMobileMenuClose}
 		>
-			<MenuItem>
-				<IconButton size="large" aria-label="show 4 new mails" color="inherit">
-					<Badge badgeContent={4} color="error">
-						<MailIcon />
-					</Badge>
-				</IconButton>
-				<p>Messages</p>
-			</MenuItem>
-			<MenuItem>
-				<IconButton
-					size="large"
-					aria-label="show 17 new notifications"
-					color="inherit"
-				>
-					<Badge color="error">
-						{/* badgeContent={17} */}
-						<NotificationsIcon  />
-					</Badge>
-				</IconButton>
-				<p>Notifications</p>
-			</MenuItem>
-			<MenuItem onClick={handleProfileMenuOpen}>
-				<IconButton
-					size="large"
-					aria-label="account of current user"
-					aria-controls="primary-search-account-menu"
-					aria-haspopup="true"
-					color="inherit"
-				>
-					<AccountCircle />
-				</IconButton>
-				<p>Profile</p>
-			</MenuItem>
 		</Menu>
 	);
 
@@ -275,21 +225,7 @@ export default function NavBar({ drawerWidth, handleDrawerToggle }) {
 					}
 					<Box sx={{ flexGrow: 1 }} />
 					<Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-						<IconButton size="large" aria-label="show 4 new mails" color="inherit">
-							<Badge badgeContent={4} color="error">
-								<MailIcon />
-							</Badge>
-						</IconButton>
-						<IconButton
-							size="large"
-							aria-label="show 17 new notifications"
-							color="inherit"
-						>
-							<Badge color="error">
-								{/* badgeContent={17} */}
-								<NotificationsIcon  />
-							</Badge>
-						</IconButton>
+
 						<IconButton
 							size="large"
 							edge="end"

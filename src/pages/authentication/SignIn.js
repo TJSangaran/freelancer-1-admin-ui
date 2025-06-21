@@ -1,23 +1,13 @@
 import React, { useState } from 'react'
 import {
-    Card,
-    CardHeader,
-    Stack,
-    Avatar,
-    IconButton,
     Typography,
-    Container,
-    CssBaseline,
     Box,
-    Grid,
     Button,
     TextField,
     FormControlLabel,
     Checkbox
 } from '@mui/material'
-import { red } from '@mui/material/colors'
 import { Link } from 'react-router-dom'
-import MoreVertIcon from '@mui/icons-material/MoreVert'
 
 
 import * as Yup from 'yup';
@@ -25,25 +15,10 @@ import { FormikProvider, useFormik, Form } from "formik";
 import { useNavigate } from "react-router-dom";
 
 
-import {
-    InputAdornment
-} from "@mui/material";
 
 import { useAuth } from "../../context/AuthContext";
 
 
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" to="https://mui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
 
 const SignIn = () => {
     const navigate = useNavigate()
